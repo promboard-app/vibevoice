@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "id": "promboard.vibevoice",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "VibeVoice-1.5B — 최대 4명 긴 대화 목소리 (영어 · 중국어)",
-  "description": "대본을 읽어 최대 4명이 주고받는 긴 대화 목소리(WAV)를 만든다(팟캐스트 · 오디오북). 화자마다 참조 목소리를 이으면 그 목소리로 복제한다. Microsoft 공식 가중치 VibeVoice-1.5B(5.4GB)를 받아 transformers 공식 구현으로 돌린다. 영어 · 중국어만 지원하고 한국어는 없다. MIT 이지만 공식 카드는 연구 목적 사용으로 한정하고 상업 · 실서비스 사용을 권하지 않는다.",
+  "description": "대본을 읽어 최대 4명이 주고받는 긴 대화 목소리(WAV)를 만든다(팟캐스트 · 오디오북). 화자마다 참조 목소리를 이으면 그 목소리로 복제한다. 한 화자를 빠르게 읽거나 한국어 실험 목소리가 필요하면 'VibeVoice-Realtime-0.5B' 플러그인을 쓴다. Microsoft 공식 가중치 VibeVoice-1.5B(5.4GB)를 받아 transformers 공식 구현으로 돌린다. 영어 · 중국어만 지원하고 한국어는 없다. MIT 이지만 공식 카드는 연구 목적 사용으로 한정하고 상업 · 실서비스 사용을 권하지 않는다.",
   "author": "PromBoard",
   "license": "Apache-2.0",
   "app": ">=1.0.3",

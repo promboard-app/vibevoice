@@ -2,11 +2,13 @@
 
 [English](#english)
 
-대본을 읽어 최대 4명이 주고받는 대화 목소리(WAV)를 만드는 PromBoard 커뮤니티 플러그인입니다. Microsoft 의 오픈 모델 [VibeVoice-1.5B](https://huggingface.co/microsoft/VibeVoice-1.5B)를 이 PC 에서 돌립니다. 팟캐스트 · 오디오북처럼 화자가 번갈아 말하는 긴 글에 맞고, 화자마다 참조 목소리(3~10초 말소리)를 이으면 그 목소리로 읽습니다.
+대본을 읽어 최대 4명이 주고받는 대화 목소리(WAV)를 만드는 PromBoard 커뮤니티 플러그인입니다. Microsoft 의 오픈 모델 [VibeVoice-1.5B](https://huggingface.co/microsoft/VibeVoice-1.5B)를 이 PC 에서 돌립니다. 팟캐스트 · 오디오북처럼 화자가 번갈아 말하는 긴 글에 맞고, 화자마다 참조 목소리(3~10초 말소리)를 이으면 그 목소리로 읽습니다. **공식 카드와 달리 이 경로에는 AI 안내 음성 · 워터마크가 들어가지 않습니다 — 만든 소리를 공개할 때는 AI 음성임을 직접 밝혀 주세요.**
+
+한 화자를 빠르게 읽거나 한국어 실험 목소리가 필요하면 [VibeVoice-Realtime-0.5B 플러그인](https://github.com/promboard-app/vibevoice-realtime)을 씁니다. 이 플러그인은 최대 4명이 주고받는 긴 대화(영어 · 중국어)와 참조 목소리 복제를 합니다.
 
 ![화자 1 · 2 참조 목소리와, 그 두 목소리로 읽은 대화의 파형 · 스펙트로그램](docs/ko/hero.png)
 
-위 두 줄은 화자 1 · 2 에 이은 참조 목소리(다른 플러그인 Kokoro · Maya1 로 만든 합성 목소리), 맨 아래는 두 사람의 대본을 한 번에 읽힌 결과입니다. 각 소리의 위 띠는 파형, 아래 띠는 스펙트로그램(가로 = 시간, 세로 = 소리 높낮이, 밝을수록 큰 소리)입니다. 듣기: [화자 1 참조](docs/ko/audio/reference-speaker1.mp3?raw=true) · [화자 2 참조](docs/ko/audio/reference-speaker2.mp3?raw=true) · [결과](docs/ko/audio/podcast-clone.mp3?raw=true)
+위 두 줄은 화자 1 · 2 에 이은 참조 목소리(다른 플러그인 Kokoro · Maya1 로 만든 합성 목소리), 맨 아래는 두 사람의 대본을 한 번에 읽힌 결과입니다. 각 소리의 위 띠는 파형, 아래 띠는 스펙트로그램(가로 = 시간, 세로 = 소리 높낮이, 밝을수록 큰 소리)입니다. 듣기: [화자 1 참조](docs/ko/audio/reference-speaker1.mp3?raw=true) · [화자 2 참조](docs/ko/audio/reference-speaker2.mp3?raw=true) · [결과](docs/ko/audio/podcast-clone.mp3?raw=true) (링크를 누르면 mp3 를 내려받습니다 — GitHub 화면은 소리를 재생하지 않습니다.)
 
 - 플러그인 id: `promboard.vibevoice`
 - 필요한 앱: PromBoard 1.0.3 이상
@@ -92,11 +94,13 @@ README 그림 · 소리 다시 만들기: 노드 결과 · 참조 WAV 를 설정
 
 ## English
 
-**VibeVoice-1.5B — long conversations with up to 4 speakers** is a PromBoard community plugin that reads a script and produces a conversation (WAV) for up to four speakers with Microsoft's open [VibeVoice-1.5B](https://huggingface.co/microsoft/VibeVoice-1.5B) model, running on this PC. It suits long podcast- or audiobook-style text, and if you connect a reference voice (3–10 s of speech) for a speaker it reads that speaker in that voice.
+**VibeVoice-1.5B — long conversations with up to 4 speakers** is a PromBoard community plugin that reads a script and produces a conversation (WAV) for up to four speakers with Microsoft's open [VibeVoice-1.5B](https://huggingface.co/microsoft/VibeVoice-1.5B) model, running on this PC. It suits long podcast- or audiobook-style text, and if you connect a reference voice (3–10 s of speech) for a speaker it reads that speaker in that voice. **Unlike what the official card says, this path adds no audible AI disclaimer or watermark — disclose that the audio is AI-generated when you publish it.**
+
+For one speaker read quickly, or for the experimental Korean voices, use the [VibeVoice-Realtime-0.5B plugin](https://github.com/promboard-app/vibevoice-realtime). This plugin does long conversations with up to four speakers (English and Chinese) and reference-voice cloning.
 
 ![Waveform and spectrogram of the reference voices for speakers 1 and 2 and of the conversation read in those two voices](docs/en/hero.png)
 
-The top two rows are the reference voices connected to speakers 1 and 2 (synthetic voices made with the Kokoro and Maya1 plugins); the bottom row is the two-person script read in one pass. For each sound the upper strip is the waveform and the lower strip is the spectrogram (time to the right, pitch upward, brighter = louder). Listen: [speaker 1 reference](docs/en/audio/reference-speaker1.mp3?raw=true) · [speaker 2 reference](docs/en/audio/reference-speaker2.mp3?raw=true) · [result](docs/en/audio/podcast-clone.mp3?raw=true)
+The top two rows are the reference voices connected to speakers 1 and 2 (synthetic voices made with the Kokoro and Maya1 plugins); the bottom row is the two-person script read in one pass. For each sound the upper strip is the waveform and the lower strip is the spectrogram (time to the right, pitch upward, brighter = louder). Listen: [speaker 1 reference](docs/en/audio/reference-speaker1.mp3?raw=true) · [speaker 2 reference](docs/en/audio/reference-speaker2.mp3?raw=true) · [result](docs/en/audio/podcast-clone.mp3?raw=true) (The links download the mp3 files; GitHub does not play audio on the page.)
 
 - Plugin id: `promboard.vibevoice`
 - Requires PromBoard 1.0.3 or later
