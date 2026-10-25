@@ -1,0 +1,26 @@
+{
+ "title": {
+  "ko": "VibeVoice-1.5B · 참조 목소리 없이(모델이 목소리를 고름)",
+  "en": "VibeVoice-1.5B · no reference voices (the model picks the voices)"
+ },
+ "items": [
+  {
+   "wav": "podcast.wav",
+   "name": "podcast-auto",
+   "label": {
+    "ko": "화자 2명 · 참조 없음 · 첫 실행",
+    "en": "2 speakers · no references · first run"
+   },
+   "text": "Speaker 1: Welcome back to the show. Today we are talking about small city gardens. / Speaker 2: Thanks for having me. I started with three tomato plants on my balcony last spring. / Speaker 1: Three plants? How did they do over the summer? / Speaker 2: Better than I expected. By August we had more tomatoes than we could eat, so I shared them with the neighbors.",
+   "meta": {
+    "ko": "18.0초 소리 · 33.0초 걸림",
+    "en": "18.0 s of audio in 33.0 s"
+   }
+  }
+ ],
+ "footer": {
+  "ko": "RTX 4070 SUPER 12GB · 첫 실행은 그래픽카드 준비가 겹쳐 느림 · 그래픽카드 메모리 최대 5.3GB",
+  "en": "RTX 4070 SUPER 12 GB · the first run is slower because the GPU warms up · peak GPU memory 5.3 GB"
+ },
+ "out": "auto.png"
+}

@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "id": "promboard.vibevoice",
+  "version": "1.0.0",
+  "name": "VibeVoice-1.5B — 최대 4명 긴 대화 목소리 (영어 · 중국어)",
+  "description": "대본을 읽어 최대 4명이 주고받는 긴 대화 목소리(WAV)를 만든다(팟캐스트 · 오디오북). 화자마다 참조 목소리를 이으면 그 목소리로 복제한다. Microsoft 공식 가중치 VibeVoice-1.5B(5.4GB)를 받아 transformers 공식 구현으로 돌린다. 영어 · 중국어만 지원하고 한국어는 없다. MIT 이지만 공식 카드는 연구 목적 사용으로 한정하고 상업 · 실서비스 사용을 권하지 않는다.",
+  "author": "PromBoard",
+  "license": "Apache-2.0",
+  "app": ">=1.0.2",
+  "repository": "https://github.com/promboard-app/vibevoice",
+  "icon": "icon.png",
+  "contents": [
+    "nodes"
+  ],
+  "licenseNotice": {
+    "conditions": "모델은 MIT 이지만 공식 카드가 연구 목적 사용으로 한정하고, 더 시험하지 않은 채 상업 · 실서비스에 쓰는 것을 권하지 않는다. 동의 없는 목소리 복제 · 사칭, 실제 녹음처럼 꾸민 허위 정보, 실시간 음성 변조에 쓰지 않는다. 공식 카드는 만든 소리마다 AI 안내 음성과 워터마크를 넣었다고 적지만, 이 플러그인이 쓰는 transformers 공식 구현에는 그 기능이 없어 결과에 들어가지 않는다 — 소리를 공개할 때는 AI 로 만든 소리임을 직접 밝힌다. 영어 · 중국어 밖의 언어는 지원하지 않는다.",
+    "url": "https://huggingface.co/microsoft/VibeVoice-1.5B"
+  },
+  "nodes": [
+    {
+      "id": "vibevoice",
+      "label": "VibeVoice 대화 목소리",
+      "description": "대본을 이으면 WAV(24kHz)를 낸다. 줄마다 'Speaker 1: 글'처럼 화자(1~4)를 적고, 화자 표시가 없는 줄은 앞 화자가 이어 읽는다. 화자 N 참조 목소리(3~10초 말소리)를 이으면 그 화자를 그 목소리로 읽고, 잇지 않으면 모델이 목소리를 고른다. 영어 · 중국어 대본만 지원한다.",
+      "inputs": [
+        {
+          "id": "text",
+          "type": "text",
+          "label": "대본 (Speaker 1: …)",
+          "required": true
+        },
+        {
+          "id": "voice-1",
+          "type": "audio",
+          "label": "화자 1 참조 목소리",
+          "required": false
+        },
+        {
+          "id": "voice-2",
+          "type": "audio",
+          "label": "화자 2 참조 목소리",
+          "required": false
+        },
+        {
+          "id": "voice-3",
+          "type": "audio",
+          "label": "화자 3 참조 목소리",
+          "required": false
+        },
+        {
+          "id": "voice-4",
+          "type": "audio",
+          "label": "화자 4 참조 목소리",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "id": "audio",
+          "type": "audio",
+          "label": "목소리"
+        }
+      ],
+      "settings": [
+        {
+          "id": "guidance",
+          "label": "설명 따르기 (CFG)",
+          "help": "클수록 대본 · 참조 목소리를 더 강하게 따른다. 공식 변환 스크립트 기본값은 1.3 이다.",
+          "type": "number",
+          "default": 1.3,
+          "min": 1,
+          "max": 3,
+          "step": 0.1
+        },
+        {
+          "id": "steps",
+          "label": "확산 단계",
+          "help": "소리 조각마다 확산 단계 수. 많을수록 느리고 조금 더 깨끗하다. 공식 기본값은 10 이다.",
+          "type": "integer",
+          "default": 10,
+          "min": 5,
+          "max": 50
+        },
+        {
+          "id": "seed",
+          "label": "시드",
+          "help": "같은 시드 · 같은 입력이면 같은 결과가 나온다.",
+          "type": "integer",
+          "default": 42,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    }
+  ],
+  "python": {
+    "version": "3.12",
+    "torch": "host",
+    "lock": {
+      "win": "nodes/requirements-win.txt",
+      "linux": "nodes/requirements-linux.txt",
+      "mac": "nodes/requirements-mac.txt"
+    },
+    "entry": "nodes.main"
+  },
+  "gpu": {
+    "vramMinMb": 8000,
+    "cpuAllowed": false
+  },
+  "permissions": {},
+  "requires": {
+    "models": [
+      {
+        "source": "huggingface",
+        "repo": "microsoft/VibeVoice-1.5B",
+        "revision": "c00898d257e6b46004e3e2866a47534085fb685a",
+        "license": "MIT",
+        "files": [
+          {
+            "path": "config.json",
+            "bytes": 2762,
+            "sha256": "b0d6db52f45dd5179b42217c55112aa2ee66e7ad7b40b0950833c9f6780a0f21"
+          },
+          {
+            "path": "model-00001-of-00003.safetensors",
+            "bytes": 1975317828,
+            "sha256": "c5f0a61ddeaeb028e3af540ba4dee7933ad30f9f30b6e1320dd9c875a2daa033"
+          },
+          {
+            "path": "model-00002-of-00003.safetensors",
+            "bytes": 1983051688,
+            "sha256": "81c3891f7b2493eb48a9eb6f5be0df48d4f1a4bfd952d84e21683ca6d0bf7969"
+          },
+          {
+            "path": "model-00003-of-00003.safetensors",
+            "bytes": 1449832938,
+            "sha256": "cb6e7e5e86b4a41fffbe1f3aaf445d0d50b5e21ed47574101b777f77d75fa196"
+          },
+          {
+            "path": "model.safetensors.index.json",
+            "bytes": 122616,
+            "sha256": "067db9b10fdecee3a5588aa00206794156c7125f5e85f3f2234e0e6d821ee629"
+          },
+          {
+            "path": "preprocessor_config.json",
+            "bytes": 351,
+            "sha256": "56bef7fb56db168e31dff685337c4acb6a35b5ce9c68d255128b01395b442c43"
+          }
+        ]
+      },
+      {
+        "source": "huggingface",
+        "repo": "Qwen/Qwen2.5-1.5B",
+        "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+        "license": "Apache-2.0",
+        "files": [
+          {
+            "path": "merges.txt",
+            "bytes": 1671839,
+            "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 7031645,
+            "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 7228,
+            "sha256": "c91efca15ceff6e9ee9424db58a6f59cd41294e550a86cbd07e3c1fb500b34f9"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+ "title": {
+  "ko": "VibeVoice-1.5B · 화자마다 참조 목소리로 대화 읽기",
+  "en": "VibeVoice-1.5B · a conversation with a reference voice per speaker"
+ },
+ "items": [
+  {
+   "wav": "ref1.wav",
+   "name": "reference-speaker1",
+   "label": {
+    "ko": "화자 1 참조 (Kokoro af_heart 로 만든 합성 목소리)",
+    "en": "Speaker 1 reference (synthetic voice made with Kokoro af_heart)"
+   },
+   "text": "The morning market opens at seven. Fresh bread, ripe tomatoes and a basket of green apples wait on the wooden table, and the baker waves hello as the first customers arrive.",
+   "meta": {
+    "ko": "11.4초",
+    "en": "11.4 s"
+   }
+  },
+  {
+   "wav": "ref2.wav",
+   "name": "reference-speaker2",
+   "label": {
+    "ko": "화자 2 참조 (Maya1 로 만든 합성 목소리)",
+    "en": "Speaker 2 reference (synthetic voice made with Maya1)"
+   },
+   "text": "The morning market opens at seven. Fresh bread, ripe tomatoes and a basket of green apples wait on the wooden table, and the baker waves hello as the first customers arrive.",
+   "meta": {
+    "ko": "13.1초",
+    "en": "13.1 s"
+   }
+  },
+  {
+   "wav": "podcast-clone.wav",
+   "name": "podcast-clone",
+   "label": {
+    "ko": "결과 · 두 참조 목소리로 읽은 대화",
+    "en": "Result · the conversation in the two reference voices"
+   },
+   "text": "Speaker 1: Welcome back to the show. Today we are talking about small city gardens. / Speaker 2: Thanks for having me. I started with three tomato plants on my balcony last spring. / Speaker 1: Three plants? How did they do over the summer? / Speaker 2: Better than I expected. By August we had more tomatoes than we could eat, so I shared them with the neighbors.",
+   "meta": {
+    "ko": "19.9초 소리 · 18.8초 걸림",
+    "en": "19.9 s of audio in 18.8 s"
+   }
+  }
+ ],
+ "footer": {
+  "ko": "RTX 4070 SUPER 12GB · 설명 따르기 1.3 · 확산 10단계 · 그래픽카드 메모리 최대 5.8GB",
+  "en": "RTX 4070 SUPER 12 GB · CFG 1.3 · 10 diffusion steps · peak GPU memory 5.8 GB"
+ },
+ "out": "hero.png"
+}
