@@ -9,7 +9,7 @@
 위 두 줄은 화자 1 · 2 에 이은 참조 목소리(다른 플러그인 Kokoro · Maya1 로 만든 합성 목소리), 맨 아래는 두 사람의 대본을 한 번에 읽힌 결과입니다. 각 소리의 위 띠는 파형, 아래 띠는 스펙트로그램(가로 = 시간, 세로 = 소리 높낮이, 밝을수록 큰 소리)입니다. 듣기: [화자 1 참조](docs/ko/audio/reference-speaker1.mp3?raw=true) · [화자 2 참조](docs/ko/audio/reference-speaker2.mp3?raw=true) · [결과](docs/ko/audio/podcast-clone.mp3?raw=true)
 
 - 플러그인 id: `promboard.vibevoice`
-- 필요한 앱: PromBoard 1.0.2 이상
+- 필요한 앱: PromBoard 1.0.3 이상
 - 지원 언어: 영어 · 중국어. **한국어는 없습니다**(공식 카드 「Out-of-scope uses」).
 - 라이선스: 플러그인 코드 Apache-2.0. 모델은 MIT 이지만 공식 카드가 **연구 목적 사용으로 한정**합니다(아래 「라이선스와 조건」)
 
@@ -99,7 +99,7 @@ README 그림 · 소리 다시 만들기: 노드 결과 · 참조 WAV 를 설정
 The top two rows are the reference voices connected to speakers 1 and 2 (synthetic voices made with the Kokoro and Maya1 plugins); the bottom row is the two-person script read in one pass. For each sound the upper strip is the waveform and the lower strip is the spectrogram (time to the right, pitch upward, brighter = louder). Listen: [speaker 1 reference](docs/en/audio/reference-speaker1.mp3?raw=true) · [speaker 2 reference](docs/en/audio/reference-speaker2.mp3?raw=true) · [result](docs/en/audio/podcast-clone.mp3?raw=true)
 
 - Plugin id: `promboard.vibevoice`
-- Requires PromBoard 1.0.2 or later
+- Requires PromBoard 1.0.3 or later
 - Languages: English and Chinese. **No Korean** (official card, "Out-of-scope uses").
 - License: plugin code Apache-2.0. The model is MIT, but the official card **limits it to research use** (see below).
 
